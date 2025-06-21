@@ -95,10 +95,10 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydb',
+        'NAME': 'postgres',
         'USER': 'oli98',
         'PASSWORD': 'password',
-        'HOST': 'localhost',  # IP of the external DB server
+        'HOST': 'db',  # IP of the external DB server
         'PORT': '5432',
     }
 }
