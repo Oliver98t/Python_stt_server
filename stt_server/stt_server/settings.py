@@ -25,9 +25,10 @@ SECRET_KEY = 'django-insecure-jgh8p_ak9=il^8di6-1hx3($7tcy!53nq)zb_zu-#9h@rns)p_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# get primary IP address of the system
+IP = "192.168.0.9"
 
-
-ALLOWED_HOSTS = ['localhost','127.0.0.1', '192.168.0.9']
+ALLOWED_HOSTS = [f"{IP}", "localhost", "127.0.0.1"]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
