@@ -1,7 +1,7 @@
 services:
   web:
     build: .
-    command: python stt_server/manage.py runserver 0.0.0.0:8000
+    command: sh set_up.sh
     volumes:
       - .:/code
     ports:

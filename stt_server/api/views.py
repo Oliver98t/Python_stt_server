@@ -47,18 +47,22 @@ class TranscriptionViewSet(viewsets.ModelViewSet):
         response = super().create(request, *args, **kwargs)
         instance = self.get_queryset().get(pk=response.data['id'])
         wav_file_path = instance.wav_file.path
-        '''
+        print(f"wav filepath:{wav_file_path}")
+        #'''
         cmd = [
-            '../whisper.cpp/build/bin/whisper-cli',
+            'whisper.cpp/build/bin/whisper-cli',
             wav_file_path,
             '-m',
-            '../whisper.cpp/models/ggml-base.en.bin',
+            'whisper.cpp/models/ggml-base.en.bin',
             '-np'
         ]
         # filter output string
+        result = subprocess.run(["ls"], capture_output=True, text=True)
+        print(result.stdout)
         result = subprocess.run(cmd, capture_output=True, text=True)
         transcription_string = sub(r'^[^\]]*\]\s*', '', result.stdout)
-        '''
+        print(transcription_string)
+        #'''
         instance.transcription = "testing api"#transcription_string
         
         # get client ip
