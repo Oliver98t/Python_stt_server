@@ -9,6 +9,7 @@ from api.permissions import IsOwnerOrReadOnly
 from django.contrib.auth.models import User
 import subprocess
 from re import sub
+import os
 
 @api_view(['GET'])
 def api_root(request, format=None):
@@ -47,12 +48,12 @@ class TranscriptionViewSet(viewsets.ModelViewSet):
         response = super().create(request, *args, **kwargs)
         instance = self.get_queryset().get(pk=response.data['id'])
         wav_file_path = instance.wav_file.path
-
+        print(os.getcwd())
         cmd = [
-            'whisper.cpp/build/bin/whisper-cli',
+            '../whisper.cpp/build/bin/whisper-cli',
             wav_file_path,
             '-m',
-            'whisper.cpp/models/ggml-base.en.bin',
+            '../whisper.cpp/models/ggml-base.en.bin',
             '-np'
         ]
         # filter output string

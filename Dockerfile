@@ -40,6 +40,3 @@ RUN sh ./whisper.cpp/models/download-ggml-model.sh base.en
 
 # Build whisper.cpp (example: build release binaries)
 RUN cd whisper.cpp && cmake -B build && cd build && make -j12
-
-# Default command: show built binaries
-CMD ["ls", "-l", "/workspace/build/bin"]
