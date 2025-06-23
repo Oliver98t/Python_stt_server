@@ -9,6 +9,7 @@ from api.permissions import IsOwnerOrReadOnly
 from django.contrib.auth.models import User
 import subprocess
 from re import sub
+import os
 
 @api_view(['GET'])
 def api_root(request, format=None):
@@ -47,7 +48,7 @@ class TranscriptionViewSet(viewsets.ModelViewSet):
         response = super().create(request, *args, **kwargs)
         instance = self.get_queryset().get(pk=response.data['id'])
         wav_file_path = instance.wav_file.path
-        '''
+        print(os.getcwd())
         cmd = [
             '../whisper.cpp/build/bin/whisper-cli',
             wav_file_path,
@@ -58,8 +59,7 @@ class TranscriptionViewSet(viewsets.ModelViewSet):
         # filter output string
         result = subprocess.run(cmd, capture_output=True, text=True)
         transcription_string = sub(r'^[^\]]*\]\s*', '', result.stdout)
-        '''
-        instance.transcription = "testing api"#transcription_string
+        instance.transcription = transcription_string
         
         # get client ip
         client_ip = request = request.META.get('REMOTE_ADDR')

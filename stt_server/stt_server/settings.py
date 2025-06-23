@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jgh8p_ak9=il^8di6-1hx3($7tcy!53nq)zb_zu-#9h@rns)p_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # get primary IP address of the system
 IP = "192.168.0.9"
@@ -91,8 +91,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-'''
-
+#'''
+#'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -103,7 +103,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+#'''
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
