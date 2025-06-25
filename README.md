@@ -12,7 +12,8 @@ Speech to text engine used: https://github.com/ggml-org/whisper.cpp by https://g
 - docker compose 
 
 ## Installation instructions
-After cloning:
+Cloning with submodules:
+- git clone --recurse-submodules https://github.com/Oliver98t/Python_stt_server.git
 - cd Python_stt_server
 - docker compose up --builld -d
 
