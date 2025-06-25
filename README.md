@@ -1,3 +1,30 @@
+# Python STT Server
+
+## Overview
 This is a Python based RESTful API backend using the Django framework for converting speech to text with JWT authentication.
 
 Speech to text engine used: https://github.com/ggml-org/whisper.cpp by https://github.com/ggml-org/whisper.cpp/commits?author=ggerganov
+
+## Prerequisites:
+- Python 3.11
+- requests module -> pip install requests  
+- docker 
+- docker compose 
+
+## Installation instructions
+After cloning:
+- cd Python_stt_server
+- docker compose up --builld -d
+
+Update deatils for postgres database
+- go to docker-compose.yml
+- update the credentials under "db" and "environment" to your choosing
+
+Create a superuser:
+- in project root "Python_stt_server/" docker compose exec web python stt_server/manage.py        createsuperuser
+- follow terminal suggestions
+- record your username and password
+
+## Testing
+- replace username and password in test_api/test_api.py with your recorded credentials from creating the superuser
+- in project root, cd test_api && python test_api.py

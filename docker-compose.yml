@@ -13,6 +13,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
+        # replace with your own desired credentials
         - POSTGRES_USER=oli98
         - POSTGRES_PASSWORD=password
         - POSTGRES_DB=postgres

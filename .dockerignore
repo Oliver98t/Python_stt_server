@@ -4,7 +4,8 @@ __pycache__/
 *.pyd
 *.db
 *.log
-
+test_api/
+rmi_docker.sh
 .venv
 .DS_Store
 .git

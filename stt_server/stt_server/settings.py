@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-jgh8p_ak9=il^8di6-1hx3($7tcy!53nq)zb_zu-#9h@rns)p_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-# get primary IP address of the system
+# get primary IP address of your system
 IP = "192.168.0.9"
 
 ALLOWED_HOSTS = [f"{IP}", "localhost", "127.0.0.1"]
@@ -84,26 +84,27 @@ WSGI_APPLICATION = 'stt_server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG == True:
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
-#'''
-#'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'oli98',
-        'PASSWORD': 'password',
-        'HOST': 'db',  # IP of the external DB server
-        'PORT': '5432',
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',
+            'USER': 'oli98', # replace with your own username
+            'PASSWORD': 'password', # replace with your own username 
+            'HOST': 'db',  # IP of the external DB server
+            'PORT': '5432',
+        }
     }
-}
-#'''
+
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
