@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-jgh8p_ak9=il^8di6-1hx3($7tcy!53nq)zb_zu-#9h@rns)p_'
+SECRET_KEY = 'UPDATE_WITH_YOUR_SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-# get primary IP address of your system
+# replace with your IP to access externally on your local network
 IP = "192.168.0.9"
 
 ALLOWED_HOSTS = [f"{IP}", "localhost", "127.0.0.1"]

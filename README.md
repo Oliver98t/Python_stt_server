@@ -29,3 +29,10 @@ Create a superuser:
 ## Testing
 - replace username and password in test_api/test_api.py with your recorded credentials from creating the superuser
 - in project root, cd test_api && python test_api.py
+
+## Getting your Django secret for future reference
+- in project root, docker compose exec web python stt_server/manage.py shell
+- paste in to Python terminal 
+    from django.core.management.utils import get_random_secret_key
+    rint(get_random_secret_key())>>> print(get_random_secret_key())
+- record your key and update stt_server/stt_server/settings.py "SECRET_KEY"
